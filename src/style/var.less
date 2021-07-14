@@ -1,0 +1,37 @@
+@danger: #cc3600; // 危险、错误
+@primary: #6b9eee; // 主色调、链接
+@warn: #dc6a12; // 警告
+@success: #7ebf50; // 成功
+@bg:#f4f4f5;
+@words:rgb(96, 98, 102);
+@bag:#2d3436;
+@wordsActive:#fff;
+@bgActive:#409eff;
+@disabled:#c0c4cc;
+@white:#fff;
+// 箭头
+@arrow:#dfe6e9;
+// 弹出框
+@chenggong:#7bed9f;
+@jinggao:#ff7f50;
+@shibai:#ff4757;
+@xinxi:#70a1ff;
+a{
+    text-decoration: none;
+    color:inherit;
+    display:inline-block;
+}
+
+.position(@pos:absolute){
+    position: @pos;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+}
+
+.position_fill(@pos:absolute){
+    .position(@pos);
+    width:100%;
+    height:100%;
+}
