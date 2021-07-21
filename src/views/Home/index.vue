@@ -1,5 +1,5 @@
 <template>
-  <div class="Home-container" ref="parentsContainer" @wheel="handleWheel">
+  <div class="Home-container" ref="parentsContainer" @wheel="handleWheel" v-loading="isLoading">
     <!-- 背景 -->
     <ul class="bg" :style="{ marginTop }" @transitionend="handleTransition">
       <li v-for="item in data" :key="item.id">
@@ -57,6 +57,7 @@ export default {
       index: 0, //轮播索引
       parentsContainerHeight: 0, //轮播父容器高度
       switching: false,
+      isLoading:true,
     };
   },
   computed: {
@@ -92,6 +93,7 @@ export default {
   // 生命周期
   async created() {
     this.data = await home();
+    this.isLoading = false;
   },
   mounted() {
     this.handleResize();
@@ -112,9 +114,6 @@ export default {
   height: 100%;
   overflow: hidden;
   position: relative;
-  li {
-    cursor: pointer;
-  }
   //  背景样式
   .bg {
     width: 100%;
@@ -126,7 +125,6 @@ export default {
     li {
       width: 100%;
       height: 100%;
-      background-color: blueviolet;
     }
   }
 
@@ -138,6 +136,7 @@ export default {
     font-size: 2.5em;
     color: @arrow;
     z-index: 1000;
+    cursor: pointer;
     //  上箭头
     &.arrow_top {
       top: @size;

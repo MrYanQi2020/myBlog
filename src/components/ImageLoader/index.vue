@@ -68,7 +68,6 @@ export default {
     .position_fill();
     filter: blur(12px);
     z-index: 10;
-    transform:scale(1.1);
   }
 }
 </style>

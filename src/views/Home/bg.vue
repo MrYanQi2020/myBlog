@@ -1,6 +1,6 @@
 <template>
   <div class="bg-container">
-    <div class="img" @mousemove="handleMousemove">
+    <div class="img">
         <ImageLoader @load="handleLoad" :src="src" :placeholder="placeholder" />
     </div>
     <div class="container">
@@ -40,9 +40,6 @@ export default {
       this.$refs.title.style.opacity = 1;
       this.$refs.descr.style.opacity = 1;
     },
-    handleMousemove(e){
-        console.log(e);
-    }
   },
   mounted() {
     this.titleWidth = this.$refs.title.clientWidth;
