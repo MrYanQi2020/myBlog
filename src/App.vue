@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <input type="text" />
     <Layout>
       <!-- aside -->
       <template #left>

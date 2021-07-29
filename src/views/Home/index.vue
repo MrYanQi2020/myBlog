@@ -39,25 +39,25 @@
 </template>
 
 <script>
+import fetchData from "@/mixins/fetchData.js";
 import home from "@/api/home";
 import Icon from "@/components/Icon";
 import Bg from "./bg";
 
+
 export default {
   name: "Home",
+  mixins:[fetchData],
   components: {
     Icon,
     Bg,
   },
-
   // 数据
   data() {
     return {
-      data: [],
       index: 0, //轮播索引
       parentsContainerHeight: 0, //轮播父容器高度
       switching: false,
-      isLoading:true,
     };
   },
   computed: {
@@ -67,6 +67,9 @@ export default {
   },
   // 方法
   methods: {
+    async fetchData(){
+      return await home();
+    },
     switchTo(i) {
       this.index = i;
     },
@@ -91,10 +94,7 @@ export default {
     },
   },
   // 生命周期
-  async created() {
-    this.data = await home();
-    this.isLoading = false;
-  },
+
   mounted() {
     this.handleResize();
     window.addEventListener("resize", this.handleResize);

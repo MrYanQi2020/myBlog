@@ -103,6 +103,7 @@ export default {
     color: @words;
     padding: 12px;
     border-radius: 4px;
+    cursor: pointer;
     &.active {
       background-color: @bgActive;
       color: @wordsActive;
